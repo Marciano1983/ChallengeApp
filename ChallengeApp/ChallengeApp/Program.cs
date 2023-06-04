@@ -12,7 +12,7 @@
 
 var name = "Ewa";
 var isWoman = true; 
-var age = 33;
+var age = 25;
 
 if (isWoman == true && age < 30)
 {

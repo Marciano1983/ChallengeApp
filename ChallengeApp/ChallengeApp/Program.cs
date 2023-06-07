@@ -1,32 +1,59 @@
-﻿/// Napisz w Program.cs kod, w którym:
-/// - zadeklarujesz zmienną z imieniem
-/// - zadeklarujesz zmienną z płcią (dobierz zmienną)
-/// - zadeklarujesz zmienną z wiekiem
-/// - zweryfikujesz dane i wyświetlisz
-/// jeden z komunikatów:
-/// (1): "Kobieta poniżej 30 lat"
-/// (2): "Ewa, lat 33"
-/// (3): "Niepełnoletni Mężczyzna"
-/// --------------------
-/// (możesz dodać swoje)
+﻿int number = 7454; 
 
-var name = "Ewa";
-var isWoman = true; 
-var age = 25;
+string intToString = number.ToString(); 
 
-if (isWoman == true && age < 30)
+char[] numbers = intToString.ToArray(); 
+
+int[] counter = new int[10];
+
+foreach (char digit in numbers)
 {
-    Console.WriteLine("Kobieta poniżej 30 lat.");
+    if (digit == '0')
+    {
+        counter[0]++;
+    }
+    else if (digit == '1')
+    {
+        counter[1]++;
+    }
+    else if(digit == '2')
+    {
+        counter[2]++;
+    }
+    else if (digit == '3')
+    {
+        counter[3]++;
+    }
+    else if (digit == '4')
+    {
+        counter[4]++;
+    }
+    else if (digit == '5')
+    {
+        counter[5]++;
+    }
+    else if (digit == '6')
+    {
+        counter[6]++;
+    }
+    else if (digit == '7')
+    {
+        counter[7]++;
+    }
+    else if (digit == '8')
+    {
+        counter[8]++;
+    }
+    else if (digit == '9')
+    {
+        counter[9]++;
+    }
 }
-else if (name == "Ewa" && age == 33)
+
+for(int i = 0; i < counter.Length; i++)
 {
-    Console.WriteLine("Ewa, lat 33.");
+    Console.WriteLine("Cyfra {0} => {1} razy", i, counter[i]);
 }
-else if (isWoman != true && age < 18)
-{
-    Console.WriteLine("Niepełnoletni Mężczyzna.");
-}
-else if (isWoman != true && age >= 18)
-{
-    Console.WriteLine("Pełnoletni Mężczyzna.");
-}
+
+
+

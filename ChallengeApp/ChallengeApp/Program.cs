@@ -1,59 +1,57 @@
-﻿int number = 7454; 
+﻿// 1. Stwórz klasę Employee, w której przechowasz imię, nazwisko, wiek 
+// oraz punkty pracownika w postaci liczb całkowitych.
+//
+// 2. Stwórz 3 pracowników i każdemu przydziel po 5 ocen z zakresu
+// od 1 do 10.
+//
+// 3. Napisz program, który wyszuka pracownika z najwyższą liczbą ocen
+// a następnie wyświetli jego dane oraz wynik.
 
-string intToString = number.ToString(); 
+using ChallengeApp;
 
-char[] numbers = intToString.ToArray(); 
+Employee employee1 = new Employee("Adam", "Kowalski", 36);
+Employee employee2 = new Employee("Roman", "Nowak", 28);
+Employee employee3 = new Employee("Ania", "Lewandowska", 45);
 
-int[] counter = new int[10];
+employee1.AddScore(1);
+employee1.AddScore(3);
+employee1.AddScore(5);
+employee1.AddScore(2);
+employee1.AddScore(6);
 
-foreach (char digit in numbers)
+employee2.AddScore(7);
+employee2.AddScore(2);
+employee2.AddScore(1);
+employee2.AddScore(3);
+employee2.AddScore(5);
+
+employee3.AddScore(6);
+employee3.AddScore(3);
+employee3.AddScore(8);
+employee3.AddScore(1);
+employee3.AddScore(5);
+
+var result1 = employee1.Result;
+var result2 = employee2.Result;
+var result3 = employee3.Result;
+
+var best = new List<int>() { result1, result2, result3 };
+var bestScore = best.Max();
+
+if (result1 == bestScore)
 {
-    if (digit == '0')
-    {
-        counter[0]++;
-    }
-    else if (digit == '1')
-    {
-        counter[1]++;
-    }
-    else if(digit == '2')
-    {
-        counter[2]++;
-    }
-    else if (digit == '3')
-    {
-        counter[3]++;
-    }
-    else if (digit == '4')
-    {
-        counter[4]++;
-    }
-    else if (digit == '5')
-    {
-        counter[5]++;
-    }
-    else if (digit == '6')
-    {
-        counter[6]++;
-    }
-    else if (digit == '7')
-    {
-        counter[7]++;
-    }
-    else if (digit == '8')
-    {
-        counter[8]++;
-    }
-    else if (digit == '9')
-    {
-        counter[9]++;
-    }
+    Console.WriteLine("Najlepszą ocenę osiągnął pracownik {0} {1}, {2} lat z wynikiem {3}", employee1.Name, employee1.Surname, employee1.Age, bestScore);
+}
+if (result2 == bestScore)
+{
+    Console.WriteLine("Najlepszą ocenę osiągnął pracownik {0} {1}, {2} lat z wynikiem {3}.", employee2.Name, employee2.Surname, employee2.Age, bestScore);
+}
+if (result3 == bestScore)
+{
+    Console.WriteLine("Najlepszą ocenę osiągnął pracownik {0} {1}, {2} lat z wynikiem {3}.", employee3.Name, employee3.Surname, employee3.Age, bestScore);
 }
 
-for(int i = 0; i < counter.Length; i++)
-{
-    Console.WriteLine("Cyfra {0} => {1} razy", i, counter[i]);
-}
+
 
 
 

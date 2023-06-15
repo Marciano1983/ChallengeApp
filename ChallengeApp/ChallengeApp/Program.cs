@@ -13,21 +13,21 @@ Employee employee1 = new Employee("Adam", "Kowalski", 36);
 Employee employee2 = new Employee("Roman", "Nowak", 28);
 Employee employee3 = new Employee("Ania", "Lewandowska", 45);
 
-employee1.AddScore(1);
+employee1.AddScore(-1);
 employee1.AddScore(3);
 employee1.AddScore(5);
-employee1.AddScore(2);
-employee1.AddScore(6);
+employee1.AddScore(-2);
+employee1.AddScore(-6);
 
-employee2.AddScore(7);
+employee2.AddScore(-7);
 employee2.AddScore(2);
 employee2.AddScore(1);
 employee2.AddScore(3);
-employee2.AddScore(5);
+employee2.AddScore(-5);
 
-employee3.AddScore(6);
+employee3.AddScore(-6);
 employee3.AddScore(3);
-employee3.AddScore(8);
+employee3.AddScore(-8);
 employee3.AddScore(1);
 employee3.AddScore(5);
 

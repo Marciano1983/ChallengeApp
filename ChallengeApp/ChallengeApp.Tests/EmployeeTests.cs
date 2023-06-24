@@ -1,49 +1,46 @@
+using ChallengeApp;
+
 namespace ChallengeApp.Tests
 {
     public class Tests
     {
         [Test]
-        public void WhenEmployeeCollectGoodScores_ShouldReturnCorrectResult()
-        {           
-            var employee = new Employee("Adam", "Kowalski", 34);
-            employee.AddScore(1);
-            employee.AddScore(5);
-            employee.AddScore(3);
-            employee.AddScore(3);
-
-            var result = employee.Result;
+        public void TheHighestGrade_ShouldBeMaxGrade()
+        {
+            var employee = new Employee("Adam", "Kowalski");
+            employee.AddGrade(3);
+            employee.AddGrade(4.3f);
+            employee.AddGrade(5.5f);
             
-            Assert.AreEqual(12, result);
+            var max = employee.GetStatistics().Max;
+
+            Assert.AreEqual(5.5, max);
         }
 
         [Test]
-        public void WhenEmployeeCollectBadScores_ShouldReturnCorrectResult()
+        public void TheLowestGrade_ShouldBeMinGrade()
         {
-            var employee = new Employee("Adam", "Kowalski", 34);
-            employee.AddScore(-1);
-            employee.AddScore(-2);
-            employee.AddScore(-3);
-            employee.AddScore(-3);
+            var employee = new Employee("Adam", "Kowalski");
+            employee.AddGrade(1.5f);
+            employee.AddGrade(4.5f);
+            employee.AddGrade(6);
 
-            var result = employee.Result;
+            var min = employee.GetStatistics().Min;
 
-            Assert.AreEqual(-9, result);
+            Assert.AreEqual(1.5, min);
         }
 
         [Test]
-        public void WhenEmployeeCollectGoodAndBadScores_ShouldReturnCorrectResult()
+        public void ThreeAddedGradesDivideByThree_ShouldBeAverageGrade()
         {
-            var employee = new Employee("Adam", "Kowalski", 34);
-            employee.AddScore(-1);
-            employee.AddScore(2);
-            employee.AddScore(-3);
-            employee.AddScore(4);
+            var employee = new Employee("Adam", "Kowalski");
+            employee.AddGrade(0);
+            employee.AddGrade(3.5f);
+            employee.AddGrade(5.5f);
 
-            var result = employee.Result;
+            var average = employee.GetStatistics().Average;
 
-            Assert.AreEqual(2, result);
+            Assert.AreEqual(3, average);
         }
-
     }
-    
 }

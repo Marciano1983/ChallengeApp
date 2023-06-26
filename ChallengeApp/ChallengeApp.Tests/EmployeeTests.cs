@@ -12,9 +12,9 @@ namespace ChallengeApp.Tests
             employee.AddGrade(4.3f);
             employee.AddGrade(5.5f);
             
-            var max = employee.GetStatistics().Max;
+            var statistics = employee.GetStatistics();
 
-            Assert.AreEqual(5.5, max);
+            Assert.AreEqual(5.5, statistics.Max);
         }
 
         [Test]
@@ -25,22 +25,22 @@ namespace ChallengeApp.Tests
             employee.AddGrade(4.5f);
             employee.AddGrade(6);
 
-            var min = employee.GetStatistics().Min;
+            var statistics = employee.GetStatistics();
 
-            Assert.AreEqual(1.5, min);
+            Assert.AreEqual(1.5, statistics.Min);
         }
 
         [Test]
         public void ThreeAddedGradesDivideByThree_ShouldBeAverageGrade()
         {
             var employee = new Employee("Adam", "Kowalski");
-            employee.AddGrade(0);
+            employee.AddGrade(1);
             employee.AddGrade(3.5f);
             employee.AddGrade(5.5f);
 
-            var average = employee.GetStatistics().Average;
+            var statistics = employee.GetStatistics();
 
-            Assert.AreEqual(3, average);
+            Assert.AreEqual(Math.Round(3.33, 2), Math.Round(statistics.Average, 2)); 
         }
     }
 }

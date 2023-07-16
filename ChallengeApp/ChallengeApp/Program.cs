@@ -1,21 +1,40 @@
 ﻿using ChallengeApp;
+using System.ComponentModel.DataAnnotations;
 
-var employee = new Employee("Adam", "Kowalski");
-employee.AddGrade("20");   // string
-employee.AddGrade("Adam"); // string - błąd (nie da się sparsować na float)
-employee.AddGrade(1.2);    // double
-employee.AddGrade(6);      // int
-employee.AddGrade(4.5f);   // float
-employee.AddGrade(9223372036854775807);  // long - błąd (przekroczony zakres grade)
-employee.AddGrade(7.2m);   // decimal 
+Console.WriteLine("Witamy w Programie BEST EMPLOYEE do oceny Pracowników");
+Console.WriteLine("=====================================================");
+Console.Write("Podaj swoje imię: ");
+var name = Console.ReadLine();
+Console.WriteLine();
+Console.WriteLine($"Witaj {name}! Już za chwilę będziesz mógł ocenić Pracownika.");
+Console.WriteLine();
 
-var statistics =  employee.GetStatistics();
-var statistics1 = employee.GetStatisticsWithForEach();
-var statistics2 = employee.GetStatisticsWithFor();
-var statistics3 = employee.GetStatisticsWithDoWhile();
-var statistics4 = employee.GetStatisticsWithWhile();
+var employee = new Employee("Adam", "Nowak");
 
-//Console.WriteLine($"The highest grade: {statistics.Max}");
-//Console.WriteLine($"The lowest grade:  {statistics.Min}");
-//Console.WriteLine($"The average grade: {statistics.Average:N2}");
+while (true)
+{
+    Console.WriteLine("Podaj ocenę Pracownika (aby wyjść - wybierz 'q'): ");
+    var input = Console.ReadLine();
+
+    if(input == "q")
+    {
+        Console.WriteLine();
+        Console.WriteLine("Dodawanie ocen zakończone!");
+        break;
+    }
+    employee.AddGrade(input);
+}
+
+var statistics = employee.GetStatistics();
+
+Console.WriteLine();
+Console.WriteLine("Podsumowanie dot. ocen Pracownika.");
+Console.WriteLine("==================================");
+Console.WriteLine($"Minimalna ocena pracownika:  {statistics.Min}");
+Console.WriteLine($"Maksymalna ocena pracownika: {statistics.Max}");
+Console.WriteLine($"Średnia ocena pracownika:    {statistics.Average:N2}");
+Console.WriteLine("==================================");
+Console.WriteLine();
+Console.WriteLine("Dziękujemy za wystawione oceny.");
+Console.WriteLine("Dzięki Tobie stajemy się lepsi!");
 

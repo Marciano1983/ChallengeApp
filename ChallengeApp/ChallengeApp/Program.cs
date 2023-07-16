@@ -1,5 +1,4 @@
 ﻿using ChallengeApp;
-using System.ComponentModel.DataAnnotations;
 
 Console.WriteLine("Witamy w Programie BEST EMPLOYEE do oceny Pracowników");
 Console.WriteLine("=====================================================");

@@ -1,5 +1,4 @@
 ﻿using ChallengeApp;
-using System.ComponentModel.DataAnnotations;
 
 Console.WriteLine("Witamy w Programie BEST EMPLOYEE do oceny Pracowników");
 Console.WriteLine("=====================================================");
@@ -22,7 +21,15 @@ while (true)
         Console.WriteLine("Dodawanie ocen zakończone!");
         break;
     }
-    employee.AddGrade(input);
+
+    try
+    {
+        employee.AddGrade(input);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Exception catched: {ex.Message}");
+    }
 }
 
 var statistics = employee.GetStatistics();

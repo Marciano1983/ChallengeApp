@@ -8,7 +8,7 @@ Console.WriteLine();
 Console.WriteLine($"Witaj {name}! Już za chwilę będziesz mógł ocenić Pracownika.");
 Console.WriteLine();
 
-var employee = new Employee("Adam", "Nowak");
+var employee = new Employee("Adam", "Nowak", 'M');
 
 while (true)
 {

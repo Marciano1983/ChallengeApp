@@ -30,7 +30,7 @@
                 throw new Exception("Invalid grade value");
             }
         }
-        
+
         public override void AddGrade(double grade)
         {
             var doubleToFloat = (float)grade;
@@ -71,7 +71,7 @@
                     throw new Exception("Wrong Letter");
             }
         }
-    
+
         public override void AddGrade(string grade)
         {
             if (float.TryParse(grade, out float result))
@@ -115,41 +115,11 @@
         {
             var statistics = new Statistics();
 
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
+            foreach (var grade in this.ReadGradesFromFile())
+            {
+                statistics.AddGrade(grade);
+            }
 
-            foreach(var grade in grades)
-            {
-                if(grade >= 0)
-                {
-                    statistics.Max = Math.Max(statistics.Max, grade);
-                    statistics.Min = Math.Min(statistics.Min, grade);
-                    statistics.Average += grade;
-                }
-            }
-            
-            statistics.Average /= grades.Count;
-                    
-            switch (statistics.Average)
-            {
-                case var average when average >= 80:
-                    statistics.AverageLetter = 'A';
-                    break;
-                case var average when average >= 60:
-                    statistics.AverageLetter = 'B';
-                    break;
-                case var average when average >= 40:
-                    statistics.AverageLetter = 'C';
-                    break;
-                case var average when average >= 20:
-                    statistics.AverageLetter = 'D';
-                    break;
-                default:
-                    statistics.AverageLetter = 'E';
-                    break;
-            }
-                
             return statistics;
         }
     }

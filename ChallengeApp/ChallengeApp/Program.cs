@@ -8,7 +8,7 @@ Console.WriteLine();
 Console.WriteLine($"Witaj {name}! Już za chwilę będziesz mógł ocenić Pracownika.");
 Console.WriteLine();
 
-var employee = new EmployeeInMemory("Jan", "Kowalski");
+var employee = new EmployeeInFile("Jan", "Kowalski");
 employee.GradeAdded += EmployeeGradeAdded;
 
 void EmployeeGradeAdded(object sender, EventArgs args)
